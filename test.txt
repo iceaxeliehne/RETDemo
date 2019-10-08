@@ -1,1 +1,10 @@
 Hello World!
+
+Git commit and push workflow
+1. make changes to the project
+2. open git kraken
+3. stage files with changes
+4. add a commit message
+5. commit
+6. push!!! very important
+7. if unsure check on github that changes have appeared
