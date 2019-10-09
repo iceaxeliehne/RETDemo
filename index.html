@@ -1,3 +1,5 @@
+
+<!DOCTYPE html>
 <html>
 <head>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -50,6 +52,7 @@ myHeading.onclick = function() {
     <h1>
   Hello World!
 </h1>
+<a href="#" >Click for Dragons!</a>
 
   
   <script>
@@ -57,7 +60,7 @@ myHeading.onclick = function() {
     if (window.parent && window.parent.parent){
       window.parent.parent.postMessage(["resultsFrame", {
         height: document.body.getBoundingClientRect().height,
-        slug: "j3agqfek"
+        slug: ""
       }], "*")
     }
 
