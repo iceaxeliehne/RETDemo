@@ -2,6 +2,43 @@
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
+// adding background tiles
+var background = {
+    'tile_images': ['grass_tile.png','stoneOnGrass.png','flower.png'],
+    'tile_objects': [],
+    'tile_locations': [],
+    'tile_size': 25,
+    'start': function() {
+        for(var i = 0; i < this.tile_images.length; i++) {
+            var tile = new Image();
+            tile.src = this.tile_images[i];
+            this.tile_objects.push(tile);
+        }
+        for(var i = 0; i < (c.width/this.tile_size); i++) {
+            for (var j = 0; j < (c.height/this.tile_size); j++) {
+                var tile = this.tile_objects[Math.floor(Math.random()* this.tile_objects.length)];
+                //console.log(this.tile_locations);
+                var tile_info = {
+                    'tile_object_index': Math.floor(Math.random()* this.tile_objects.length),
+                    'x': i * this.tile_size,
+                    'y': j * this.tile_size
+                }
+                this.tile_locations.push(tile_info);
+            }
+        }
+    },
+    'draw': function() {
+        for(var i = 0; i < this.tile_locations.length; i++) {
+                var tile = this.tile_objects[this.tile_locations[i].tile_object_index];
+                console.log(this.tile_objects);
+                ctx.drawImage(tile, this.tile_locations[i].x, this.tile_locations[i].y, this.tile_size, this.tile_size);
+            
+        }
+    },
+}
+background.start();
+
+
 // create player object
 // parameters are like settings that you can change
 // parameters can also be functions that will run code when called
@@ -22,7 +59,7 @@ var player = {
     'prev_y': 0,
     'pos_x': c.width / 2, // the position that the sprite will be drawn
     'pos_y': 0,
-    'unit_size': 100, // the size that the sprite will be drawn 
+    'unit_size': 50, // the size that the sprite will be drawn 
     'colour': "#FF0000", // not used
     'move_down': false, // used to tell the player to move it's position down the screen
     'stop_animation': false, // used to tell the player to go back to the first animation frame
@@ -110,6 +147,7 @@ setInterval(updateGameState, 1000 / 60);
 // this function is called repeatedly. this is where we update the game
 function updateGameState() {
     ctx.clearRect(0, 0, c.width, c.height); // clear the canvas
+    background.draw();
     player.update(); // update the player
     player.draw(); // draw the player sprite
 };
