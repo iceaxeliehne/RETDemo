@@ -17,7 +17,11 @@
         <label>Rotation Z</label>
         <input type="range" min="0" max="360" value="0" class="slider" id="rotationZRange"> -->
 	<!-- </div> -->
-    <a-scene embedded arjs='trackingMethod: best;'>
+    <a-scene
+        vr-mode-ui="enabled: false"
+		embedded
+        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+      
       <!-- <a-marker preset='hiro'> -->
       <a-gltf-model id="MyThing" src="./scene.gltf" scale="2.5 2.5 2.5" position='0 -10 0' gps-entity-place="longitude: 149.8411476; latitude: -36.673862;"></a-gltf-model>
            <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
