@@ -1,0 +1,74 @@
+
+<!-- <script src="https://aframe.io/releases/0.7.1/aframe.min.js"></script>
+
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.5.0/aframe/build/aframe-ar.js"></script>
+
+ -->
+ <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+<script src="https://raw.githack.com/jeromeetienne/AR.js/2.0.8/aframe/build/aframe-ar.js"></script>
+ <body style='margin : 0px; overflow: hidden;'>
+    <!-- <div class="slidecontainer" display="none">
+      <label>Scale</label>
+        <input type="range" min="1" max="100" value="50" class="slider" id="myRange">
+        <label>Rotation X</label>
+        <input type="range" min="0" max="360" value="0" class="slider" id="rotationXRange">
+        <label>Rotation Y</label>
+        <input type="range" min="0" max="360" value="0" class="slider" id="rotationYRange">
+        <label>Rotation Z</label>
+        <input type="range" min="0" max="360" value="0" class="slider" id="rotationZRange"> -->
+	<!-- </div> -->
+    <a-scene embedded arjs='trackingMethod: best;'>
+      <!-- <a-marker preset='hiro'> -->
+      <a-gltf-model id="MyThing" src="/path/to/object.gltf" scale="0.005 0.005 0.005" position='0 -10 0' gps-entity-place="longitude: -36.673862; latitude: 149.8411476;"></a-gltf-model>
+           <a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>
+      <!-- </a-marker> -->
+        <a-camera gps-camera rotation-reader></a-camera>
+    </a-scene>
+    
+    
+	<script>
+		/* var scale_slider = document.getElementById("myRange");
+		var rot_x_slider = document.getElementById("rotationXRange");
+		var rot_y_slider = document.getElementById("rotationYRange");
+		var rot_z_slider = document.getElementById("rotationZRange");
+		var output = document.getElementById("MyThing");
+		var original_scale = output.getAttribute('scale');
+		var scale_percentage = original_scale.x / 100; */
+		// Display the default slider value
+
+		// Update the current slider value (each time you drag the slider handle)
+		/* scale_slider.oninput = function() {
+		  console.log("test");
+		  
+		  var scale = output.getAttribute('scale')
+		    console.log(scale.x);
+		    scale.x = scale_percentage * this.value;
+		    scale.y = scale_percentage * this.value;
+		    scale.z = scale_percentage * this.value;
+		    output.setAttribute('scale',scale);
+		    // output. = this.value;
+		}
+		
+		function SetRotation(value, axis) {
+		  var rotation = output.getAttribute('rotation');
+		  
+		  rotation[axis] = value;
+		  output.setAttribute('rotation',rotation);
+		  console.log('test rotation');
+		  console.log(rotation);
+		}
+		
+		rot_x_slider.oninput = function() {
+		  SetRotation(this.value,'x');
+		}
+		rot_y_slider.oninput = function() {
+		  SetRotation(this.value,'y');
+		}
+		rot_z_slider.oninput = function() {
+		  SetRotation(this.value,'z');
+		}
+		 */
+
+
+	</script>
+</body>
